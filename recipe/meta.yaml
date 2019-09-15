@@ -17,9 +17,15 @@ source:
   sha256: 090a84963ff15a8881a5f064c530c6e17a559968867ed4fdc3ac1f6d91047bc9  # [win]
 
 build:
-  number: 0
+  number: 1
   binary_relocation:
     - bin/firefox
+
+requirements:
+  host:
+    - vs2015_runtime  # [win]
+  run:
+    - vs2015_runtime  # [win]
 
 test:
   commands:
