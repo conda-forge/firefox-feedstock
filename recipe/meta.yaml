@@ -30,7 +30,9 @@ requirements:
 test:
   commands:
     - test -f $PREFIX/bin/firefox  # [not win]
-    - if not exist %LIBRARY_BIN%\\firefox.exe exit 1  # [win]
+    - if not exist %LIBRARY_BIN%\firefox.exe exit 1  # [win]
+    - %LIBRARY_BIN%\firefox.exe --version  # [win]
+    - $PREFIX/bin/firefox --version  # [osx]
 
 about:
   home: https://www.mozilla.org/en-US/firefox/releases
