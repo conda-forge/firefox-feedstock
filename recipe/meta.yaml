@@ -22,10 +22,8 @@ build:
     - bin/firefox
 
 requirements:
-  host:
-    - vs2015_runtime  # [win]
-  run:
-    - vs2015_runtime  # [win]
+  host: [vs2015_runtime]  # [win]
+  run: [vs2015_runtime]  # [win]
 
 test:
   commands:
