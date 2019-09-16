@@ -22,14 +22,16 @@ build:
     - bin/firefox
 
 requirements:
-  host: [vs2015_runtime]  # [win]
-  run: [vs2015_runtime]  # [win]
+  host:
+    - vs2015_runtime  # [win]
+  run:
+    - vs2015_runtime  # [win]
 
 test:
   commands:
     - test -f $PREFIX/bin/firefox  # [not win]
-    - if not exist %LIBRARY_BIN%\firefox.exe exit 1  # [win]
-    - %LIBRARY_BIN%\firefox.exe --version  # [win]
+    - if not exist "%LIBRARY_BIN%\\firefox.exe" exit 1  # [win]
+    - "%LIBRARY_BIN%\\firefox.exe --version"  # [win]
     - $PREFIX/bin/firefox --version  # [osx]
 
 about:
