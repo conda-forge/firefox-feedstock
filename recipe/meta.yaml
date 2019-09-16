@@ -18,14 +18,15 @@ source:
 
 build:
   number: 1
+  skip: true  # [win and vc!=14]
+  msvc_compiler: 14.0  # [win]
   binary_relocation:
     - bin/firefox
 
 requirements:
-  host:
-    - vc =14  # [win]
-  run:
-    - vc =14  # [win]
+  build:
+    - {{ compiler('c') }}  # [unix]
+    - {{ compiler('cxx') }}  # [unix]
 
 test:
   commands:
