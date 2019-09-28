@@ -36,19 +36,22 @@ if __name__ == "__main__":
             sys.exit(1)
 
     print("testing about:license with selenium...")
-    options = Options()
-    options.headless = True
-    driver = webdriver.Firefox(options=options,
-                               firefox_binary=FIREFOX_BINARY,
-                               executable_path=EXECUTABLE_PATH)
-    driver.get("about:license")
+    driver = None
     try:
+        options = Options()
+        options.headless = True
+        driver = webdriver.Firefox(options=options,
+                                   firefox_binary=FIREFOX_BINARY,
+                                   executable_path=EXECUTABLE_PATH)
+        driver.get("about:license")
+
         assert "Mozilla Public License 2.0" in driver.page_source, \
             "couldn't even load the license page"
         print("... ok")
         driver.quit()
     except:
-        driver.quit()
+        if driver:
+            driver.quit()
         print("... failed to load license page")
         if IS_LINUX:
             print("... about:license check ignored on linux, due to gtk3")
