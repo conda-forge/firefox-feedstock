@@ -17,14 +17,19 @@ source:
   sha256: 090a84963ff15a8881a5f064c530c6e17a559968867ed4fdc3ac1f6d91047bc9  # [win]
 
 build:
-  number: 0
+  number: 1
   binary_relocation:
     - bin/firefox
 
+requirements:
+  build:
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+
 test:
-  commands:
-    - test -f $PREFIX/bin/firefox  # [not win]
-    - if not exist %LIBRARY_BIN%\\firefox.exe exit 1  # [win]
+  requires:
+    - selenium
+    - geckodriver
 
 about:
   home: https://www.mozilla.org/en-US/firefox/releases
