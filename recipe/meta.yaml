@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://ftp.mozilla.org/pub/firefox/releases/{{ version }}/linux-x86_64/en-US/firefox-{{ version }}.tar.bz2  # [linux64]
-  sha256: 51a1ee4288009d7304177dc9229f6b52ce11d8bc6f7296534763b726eeff4379 # [linux64]
+  sha256: 51a1ee4288009d7304177dc9229f6b52ce11d8bc6f7296534763b726eeff4379  # [linux64]
 
   fn: firefox.pkg  # [osx]
   url: https://ftp.mozilla.org/pub/firefox/releases/{{ version }}/mac/en-US/Firefox%20{{ version }}.pkg  # [osx]
