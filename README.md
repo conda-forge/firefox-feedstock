@@ -163,5 +163,6 @@ Feedstock Maintainers
 =====================
 
 * [@birdsarah](https://github.com/birdsarah/)
+* [@bollwyvl](https://github.com/bollwyvl/)
 * [@ocefpaf](https://github.com/ocefpaf/)
 
