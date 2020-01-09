@@ -34,7 +34,7 @@ test:
 about:
   home: https://www.mozilla.org/en-US/firefox/releases
   license: MPL-2.0
-  license_family: OTHER
+  license_family: MOZILLA
   license_file: LICENSE
   summary: 'Firefox web browser'
 
