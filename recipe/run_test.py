@@ -6,9 +6,6 @@ import subprocess
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 
-# can't always test on linux due to gtk3
-# - https://github.com/conda-forge/staged-recipes/issues/9314
-IS_LINUX = sys.platform.startswith("linux")
 
 if sys.platform.startswith("win32"):
     FIREFOX_BINARY = os.path.join(os.environ["LIBRARY_BIN"], "firefox.exe")
@@ -30,10 +27,7 @@ if __name__ == "__main__":
         print("... ok")
     except subprocess.CalledProcessError:
         print("... failed to check version")
-        if IS_LINUX:
-            print("... version check failure ignored on linux due to gtk3")
-        else:
-            sys.exit(1)
+        sys.exit(1)
 
     print("testing about:license with selenium...")
     driver = None
@@ -53,7 +47,4 @@ if __name__ == "__main__":
         if driver:
             driver.quit()
         print("... failed to load license page")
-        if IS_LINUX:
-            print("... about:license check ignored on linux, due to gtk3")
-        else:
-            sys.exit(1)
+        sys.exit(1)

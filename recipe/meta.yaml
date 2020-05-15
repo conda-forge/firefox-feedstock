@@ -30,6 +30,7 @@ test:
   requires:
     - selenium
     - geckodriver
+    - gtk3
 
 about:
   home: https://www.mozilla.org/en-US/firefox/releases
