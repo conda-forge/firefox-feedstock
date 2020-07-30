@@ -37,8 +37,8 @@ test:
     - pytest-azurepipelines
     - python >=3.6
   commands:
-    - copy {{ RECIPE_DIR }}\test_selenium.py {{ RECIPE_DIR }}\setup.cfg . # [win]
-    - cp {{ RECIPE_DIR }}/test_selenium.py {{ RECIPE_DIR }}/setup.cfg . # [not win]
+    - copy {{ RECIPE_DIR }}\test_selenium.py {{ RECIPE_DIR }}\setup.cfg .  # [win]
+    - cp {{ RECIPE_DIR }}/test_selenium.py {{ RECIPE_DIR }}/setup.cfg .  # [not win]
     - python -m pytest
 
 
