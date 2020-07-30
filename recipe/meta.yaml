@@ -25,11 +25,22 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+  host:
+    - gtk3  # [linux]
+  run:
+    - gtk3  # [linux]
 
 test:
   requires:
     - selenium
     - geckodriver
+    - pytest-azurepipelines
+    - python >=3.6
+  commands:
+    - copy {{ RECIPE_DIR }}\test_selenium.py {{ RECIPE_DIR }}\setup.cfg . # [win]
+    - cp {{ RECIPE_DIR }}/test_selenium.py {{ RECIPE_DIR }}/setup.cfg . # [not win]
+    - python -m pytest
+
 
 about:
   home: https://www.mozilla.org/en-US/firefox/releases
