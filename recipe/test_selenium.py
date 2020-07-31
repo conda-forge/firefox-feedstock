@@ -27,7 +27,7 @@ if "IGNORE_FIREFOX_FAIL" in os.environ:
 FIREFOX = Path(sys.prefix) / "bin" / "FirefoxApp" / "firefox"
 GECKODRIVER = Path(sys.prefix) / "bin" / "geckodriver"
 
-FIREFOX_VERSION = os.environ["PKG_VERSION"] if os.environ["PKG_NAME"] == "geckodriver" else None
+FIREFOX_VERSION = os.environ["PKG_VERSION"] if os.environ["PKG_NAME"] == "firefox" else None
 GECKODRIVER_VERSION = os.environ["PKG_VERSION"] if os.environ["PKG_NAME"] == "geckodriver" else None
 
 
