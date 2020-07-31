@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -eux
 
 APP_DIR=$PREFIX/bin/FirefoxApp
 LAUNCH_SCRIPT=$PREFIX/bin/firefox

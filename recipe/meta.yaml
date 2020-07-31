@@ -26,10 +26,6 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - sysroot_linux-64 2.17  # [linux64]
-  host:
-    - gtk3  # [linux]
-  run:
-    - gtk3  # [linux]
 
 test:
   requires:
