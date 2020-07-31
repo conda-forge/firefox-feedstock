@@ -16,13 +16,15 @@ from selenium.webdriver.firefox.options import Options
 
 import pytest
 
-# on the CI images, glibc is too old
-IGNORE_FIREFOX_FAIL = "linux" in sys.platform.lower()
+# on the old CI images, glibc is too old
+# IGNORE_FIREFOX_FAIL = "linux" in sys.platform.lower()
+IGNORE_FIREFOX_FAIL = False
 
 if "IGNORE_FIREFOX_FAIL" in os.environ:
     IGNORE_FIREFOX_FAIL = json.loads(os.environ["IGNORE_FIREFOX_FAIL"])
 
-FIREFOX = Path(sys.prefix) / "bin" / "firefox"
+# bin/firefox is a wrapper script
+FIREFOX = Path(sys.prefix) / "bin" / "FirefoxApp" / "firefox"
 GECKODRIVER = Path(sys.prefix) / "bin" / "geckodriver"
 
 
@@ -32,8 +34,8 @@ if "win32" in sys.platform.lower():
 
 
 @pytest.mark.parametrize("path,expected_version,ignore_fail", [
-    [FIREFOX, os.environ["PKG_VERSION"], IGNORE_FIREFOX_FAIL],
-    [GECKODRIVER, None, False]
+    [FIREFOX, None, IGNORE_FIREFOX_FAIL],
+    [GECKODRIVER, os.environ["PKG_VERSION"], False]
 ])
 def test_binary_version(path, expected_version, ignore_fail):
     """ assert that the path exists, is callable, and maybe has the right version
@@ -64,11 +66,13 @@ def test_read_license(tmp_path):
     try:
         options = Options()
         options.headless = True
-        options.log_level = "trace"
-        driver = webdriver.Firefox(options=options,
-                                   firefox_binary=str(FIREFOX),
-                                   executable_path=str(GECKODRIVER),
-                                   service_log_path=str(geckodriver_log))
+        driver = webdriver.Firefox(
+            options=options,
+            firefox_binary=str(FIREFOX),
+            executable_path=str(GECKODRIVER),
+            service_log_path=str(geckodriver_log),
+            service_args=["--log", "trace"]
+        )
         driver.get("about:license")
 
         if driver.page_source:
@@ -82,6 +86,7 @@ def test_read_license(tmp_path):
         print(traceback.format_exc())
         if not IGNORE_FIREFOX_FAIL:
             errors += [err]
+            raise Exception("license check failed") from err
     finally:
         errors += list(_dump_logs([geckodriver_log]))
 
