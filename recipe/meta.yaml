@@ -17,7 +17,7 @@ source:
   sha256: 732cdb321f7496c712d70b137b54073192e325ce382c46fe3dd13c1ec82034f3  # [win]
 
 build:
-  number: 0
+  number: 1
   binary_relocation:
     - bin/firefox
 
@@ -25,11 +25,23 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - sysroot_linux-64 2.17  # [linux64]
 
 test:
   requires:
     - selenium
     - geckodriver
+    - pytest-azurepipelines
+    - python >=3.6
+  commands:
+    - copy {{ RECIPE_DIR }}\test_selenium.py .  # [win]
+    - copy {{ RECIPE_DIR }}\setup.cfg .  # [win]
+    - cp {{ RECIPE_DIR }}/test_selenium.py {{ RECIPE_DIR }}/setup.cfg .  # [not win]
+    # TODO: may be needed in the future
+    # https://firefox-source-docs.mozilla.org/testing/geckodriver/Notarization.html
+    # - set -m && % xattr -r -d com.apple.quarantine $PREFIX/bin/geckodriver  # [osx]
+    - python -m pytest
+
 
 about:
   home: https://www.mozilla.org/en-US/firefox/releases
