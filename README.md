@@ -10,7 +10,6 @@ Feedstock license: BSD-3-Clause
 Summary: Firefox web browser
 
 
-
 Current build status
 ====================
 
