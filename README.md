@@ -10,6 +10,7 @@ Feedstock license: BSD-3-Clause
 Summary: Firefox web browser
 
 
+
 Current build status
 ====================
 
@@ -151,7 +152,4 @@ Feedstock Maintainers
 * [@birdsarah](https://github.com/birdsarah/)
 * [@bollwyvl](https://github.com/bollwyvl/)
 * [@ocefpaf](https://github.com/ocefpaf/)
-
-
-<!-- dummy commit to enable rerendering -->
 
