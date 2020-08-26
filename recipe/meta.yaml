@@ -17,7 +17,7 @@ source:
   sha256: f93446a6bd0dd36a58a805c6069516ae8975929e48828f0fcbb258d4b63d48ac  # [win]
 
 build:
-  number: 1
+  number: 0
   binary_relocation:
     - bin/firefox
 
