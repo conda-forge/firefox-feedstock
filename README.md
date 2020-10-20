@@ -5,11 +5,9 @@ Home: https://www.mozilla.org/en-US/firefox/releases
 
 Package license: MPL-2.0
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/firefox-feedstock/blob/master/LICENSE.txt)
 
 Summary: Firefox web browser
-
-
 
 Current build status
 ====================
