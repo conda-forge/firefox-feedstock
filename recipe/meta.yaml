@@ -1,4 +1,4 @@
-{% set version = "78.6.0esr" %}
+{% set version = "78.7.0esr" %}
 
 package:
   name: firefox
@@ -6,15 +6,15 @@ package:
 
 source:
   url: https://ftp.mozilla.org/pub/firefox/releases/{{ version }}/linux-x86_64/en-US/firefox-{{ version }}.tar.bz2  # [linux64]
-  sha256: a85c968bd4c211c7c3a67bcabf7f70b9523a5b315806c69529d6c3e6df8b53d9  # [linux64]
+  sha256: 1059220cc97164888fe4e869c1b8e6b6b337863214b02a9eb1c776cf5c4a7480  # [linux64]
 
   fn: firefox.pkg  # [osx]
   url: https://ftp.mozilla.org/pub/firefox/releases/{{ version }}/mac/en-US/Firefox%20{{ version }}.pkg  # [osx]
-  sha256: c474563b03dd5e739df695de3845756c0476c8f016fe531aebe63990cca23c52  # [osx]
+  sha256: 16c5d1834cf9767deb12dfb4cee8ef13d966932ba90f6152a073004b117b54da  # [osx]
 
   fn: firefox.msi  # [win]
   url: https://ftp.mozilla.org/pub/firefox/releases/{{ version }}/win64/en-US/Firefox%20Setup%20{{ version }}.msi  # [win]
-  sha256: 6ab50e00004a5c4dcc8fdc9aab01b464537af5289d5ee1db651ad9c5ba626dcc  # [win]
+  sha256: 29f8e7bd3055cae46ee0f8613b5da2d06cd5bce69cee48c173d8671b6c5ebded  # [win]
 
 build:
   number: 0
@@ -31,7 +31,7 @@ test:
   requires:
     - selenium
     - geckodriver
-    - pytest-azurepipelines
+    - pytest
     - python >=3.6
   commands:
     - copy {{ RECIPE_DIR }}\test_selenium.py .  # [win]
