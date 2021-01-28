@@ -29,9 +29,10 @@ requirements:
 
 test:
   requires:
-    - selenium
     - geckodriver
+    - pytest
     - python >=3.6
+    - selenium
   commands:
     - copy {{ RECIPE_DIR }}\test_selenium.py .  # [win]
     - copy {{ RECIPE_DIR }}\setup.cfg .  # [win]
