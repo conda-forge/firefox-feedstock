@@ -10,7 +10,7 @@ if [[ $(uname) == Linux ]]; then
   BIN_LOCATION=$APP_DIR/firefox
 elif [[ $(uname) == Darwin ]]; then
   pkgutil --expand firefox.pkg firefox
-  cpio -i -I firefox/Payload
+  cpio -i -I firefox/*/Payload
   cp -rf Firefox.app/* $APP_DIR
   BIN_LOCATION=$APP_DIR/Contents/MacOS/firefox
 fi
