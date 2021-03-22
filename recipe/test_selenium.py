@@ -88,9 +88,11 @@ def test_page(thing, url, expected_re, tmp_path, driver):
     driver.get(url)
     source = driver.page_source
 
-    assert re.findall(expected_re, source)
+    matches = [*re.findall(expected_re, source)]
 
-    html.write_text(driver.page_source)
+    assert matches, f"couldn't find {expected_re} in {url}, {source}"
+
+    html.write_text(source)
 
     driver.save_screenshot(str(png))
 
