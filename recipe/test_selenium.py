@@ -9,8 +9,7 @@ import subprocess
 import traceback
 import json
 import re
-
-
+import time
 from pathlib import Path
 
 from selenium import webdriver
@@ -86,9 +85,13 @@ def test_page(thing, url, expected_re, tmp_path, driver):
     print(f"checking {url} for `{expected_re}`...")
     errors = []
     driver.get(url)
-    source = driver.page_source
 
-    matches = [*re.findall(expected_re, source)]
+    for i in range(3):
+        source = driver.page_source
+        matches = [*re.findall(expected_re, source)]
+        if matches:
+            break
+        time.sleep(3)
 
     assert matches, f"couldn't find {expected_re} in {url}, {source}"
 
