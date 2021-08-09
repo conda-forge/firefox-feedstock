@@ -14,7 +14,7 @@ source:
 
   fn: firefox.msi  # [win]
   url: https://ftp.mozilla.org/pub/firefox/releases/{{ version }}/win64/en-US/Firefox%20Setup%20{{ version }}.msi  # [win]
-  sha256: ffb625dd6b678416b32ede9f7632b22be8616fdf3b704ac829ec9df0606c2fb7  # [win]
+  sha256: f4158e4fc276c6ac4f10e1072bfc4580f9673f1097007f2cda4b4b104229f0a7  # [win]
 
 build:
   number: 0
