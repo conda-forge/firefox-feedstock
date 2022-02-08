@@ -5,6 +5,7 @@ package:
   version: {{ version }}
 
 source:
+  folder: firefox  # [linux64]
   url: https://ftp.mozilla.org/pub/firefox/releases/{{ version }}/linux-x86_64/en-US/firefox-{{ version }}.tar.bz2  # [linux64]
   sha256: 3d0f74790fe6ff5e38324222ab0c47e10edb31970ed67c6dd7a1c84e7017d1a5  # [linux64]
 
@@ -32,17 +33,17 @@ test:
     - geckodriver
     - pytest
     - python >=3.6
-    - selenium
+    - selenium >=4
   commands:
     - copy {{ RECIPE_DIR }}\test_selenium.py .  # [win]
     - copy {{ RECIPE_DIR }}\setup.cfg .  # [win]
     - cp {{ RECIPE_DIR }}/test_selenium.py {{ RECIPE_DIR }}/setup.cfg .  # [not win]
+    - firefox --version
+    - firefox --help
     # TODO: may be needed in the future
     # https://firefox-source-docs.mozilla.org/testing/geckodriver/Notarization.html
     # - set -m && % xattr -r -d com.apple.quarantine $PREFIX/bin/geckodriver  # [osx]
-    - python -m pytest
-  downstreams:
-    - geckodriver
+    - python -m pytest test_selenium.py
 
 about:
   home: https://www.mozilla.org/en-US/firefox/releases

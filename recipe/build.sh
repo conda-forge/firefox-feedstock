@@ -7,7 +7,7 @@ LAUNCH_SCRIPT=$PREFIX/bin/firefox
 mkdir -p $APP_DIR
 
 if [[ $(uname) == Linux ]]; then
-  mv * $APP_DIR
+  mv firefox/* $APP_DIR
   BIN_LOCATION=$APP_DIR/firefox
 elif [[ $(uname) == Darwin ]]; then
   pkgutil --expand firefox.pkg firefox
