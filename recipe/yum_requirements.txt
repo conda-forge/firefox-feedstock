@@ -1,4 +1,5 @@
 alsa-lib
+alsa-tools
 gtk3
 libX11
 libXcomposite
