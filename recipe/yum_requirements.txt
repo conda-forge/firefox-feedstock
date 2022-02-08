@@ -1,3 +1,4 @@
+alsa-lib
 gtk3
 libX11
 libXcomposite
