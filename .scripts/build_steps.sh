@@ -42,7 +42,7 @@ source run_conda_forge_build_setup
 # "recipe/yum_requirements.txt" file. After updating that file,
 # run "conda smithy rerender" and this line will be updated
 # automatically.
-/usr/bin/sudo -n yum install -y gtk3 libX11 libXcomposite libXcursor libXdamage libXext libXfixes libXi libXinerama libXrandr libXt
+/usr/bin/sudo -n yum install -y alsa-lib alsa-tools gtk3 gtk3-devel libX11 libXcomposite libXcursor libXdamage libXext libXfixes libXi libXinerama libXrandr libXt
 
 
 # make the build number clobber

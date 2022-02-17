@@ -14,6 +14,8 @@ from pathlib import Path
 
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.firefox.service import Service
+from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
 import pytest
 
@@ -45,26 +47,28 @@ def binary_paths():
     assert firefox.exists()
     assert geckodriver.exists()
 
-    return dict(
-        firefox_binary=str(firefox),
-        executable_path=str(geckodriver),
-    )
+    return firefox, geckodriver
 
 
 @pytest.fixture
 def driver(tmp_path, binary_paths):
+    firefox, geckodriver = binary_paths
     log = tmp_path / "geckodriver.log"
 
     options = Options()
     options.headless = True
-    driver = webdriver.Firefox(
-        options=options,
-        service_log_path=str(log),
+    options.binary = FirefoxBinary(str(firefox))
+
+    service = Service(
+        executable_path=str(geckodriver),
         service_args=["--log", "trace"],
-        **binary_paths,
+        log_path=str(log)
     )
 
+    driver = webdriver.Firefox(options=options, service=service)
+
     yield driver
+
     driver.quit()
 
     print(
