@@ -21,6 +21,8 @@ build:
   number: 0
   binary_relocation:
     - bin/firefox
+  script_env:
+    - MOZ_HEADLESS=1
 
 requirements:
   build:
@@ -34,8 +36,6 @@ test:
     - pytest
     - python >=3.6
     - selenium >=4
-  script_env:
-    - MOZ_HEADLESS=1
   commands:
     - copy {{ RECIPE_DIR }}\test_selenium.py .  # [win]
     - copy {{ RECIPE_DIR }}\setup.cfg .  # [win]
