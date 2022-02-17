@@ -26,7 +26,6 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - {{ cdt('alsa-lib-devel') }}  # [linux64]
     - sysroot_linux-64 2.17  # [linux64]
 
 test:
@@ -35,7 +34,8 @@ test:
     - pytest
     - python >=3.6
     - selenium >=4
-    - pulseaudio
+  script_env:
+    - MOZ_HEADLESS=1
   commands:
     - copy {{ RECIPE_DIR }}\test_selenium.py .  # [win]
     - copy {{ RECIPE_DIR }}\setup.cfg .  # [win]
