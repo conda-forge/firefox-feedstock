@@ -7,15 +7,15 @@ package:
 source:
   folder: firefox  # [linux64]
   url: https://ftp.mozilla.org/pub/firefox/releases/{{ version }}/linux-x86_64/en-US/firefox-{{ version }}.tar.bz2  # [linux64]
-  sha256: 528845df1a15acf081fdc9e1e7276f0b4601acc9df3553324e02c9c6fb9b7d9d  # [linux64]
+  sha256: e7b42e9fd82bcd569cbca1fc95b7e1a364c3dbf4d44a0624b4466ec1bd67f836  # [linux64]
 
   fn: firefox.pkg  # [osx]
   url: https://ftp.mozilla.org/pub/firefox/releases/{{ version }}/mac/en-US/Firefox%20{{ version }}.pkg  # [osx]
-  sha256: b526f4f69027df1b7e39cbf69b544e5ebd287bc83fe035adc98ed73211b0c9ab  # [osx]
+  sha256: ca214086b945fa8a42025338bc44d14d85dc95aeed5444e8da964818b8690fd2  # [osx]
 
   fn: firefox.msi  # [win]
   url: https://ftp.mozilla.org/pub/firefox/releases/{{ version }}/win64/en-US/Firefox%20Setup%20{{ version }}.msi  # [win]
-  sha256: 8d5d3c1ddc32551e59b201216fea862a86729b97c83acd1a04a75f3581f1084b  # [win]
+  sha256: 51694dd55c21206abfe9cd1320193e7a36cdb3d48f8549d0790b74e5e085c52f  # [win]
 
 build:
   number: 0
