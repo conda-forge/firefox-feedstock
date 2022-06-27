@@ -1,4 +1,4 @@
-{% set version = "91.10.0esr" %}
+{% set version = "91.11.0esr" %}
 
 package:
   name: firefox
@@ -6,15 +6,15 @@ package:
 
 source:
   url: https://ftp.mozilla.org/pub/firefox/releases/{{ version }}/linux-x86_64/en-US/firefox-{{ version }}.tar.bz2  # [linux64]
-  sha256: faf089c8de8d437898e7ec49a7269bf741959c0152b55b2f09ede05382a22ed1  # [linux64]
+  sha256: b32a076add69080ba74b76e9bcd045cf574c2e79f13047e57e1781a914d38b94  # [linux64]
 
   fn: firefox.pkg  # [osx]
   url: https://ftp.mozilla.org/pub/firefox/releases/{{ version }}/mac/en-US/Firefox%20{{ version }}.pkg  # [osx]
-  sha256: 3efebdb2458180c39c55ffbcb14b8419bf72cacd162d5327e242959c37ee4b4b  # [osx]
+  sha256: e28a128d2eed1e084d8f9bf88175453a7f6600c00c88d920f830a29e61c4d44a  # [osx]
 
   fn: firefox.msi  # [win]
   url: https://ftp.mozilla.org/pub/firefox/releases/{{ version }}/win64/en-US/Firefox%20Setup%20{{ version }}.msi  # [win]
-  sha256: 333520619f8da5d5d78aa540e50e86375e6e60a9754ff56686bee8e43285969a  # [win]
+  sha256: 60f9dcca1c933a167153fb64b83ae76297d9579d6da494d2aa973e3412caa4de  # [win]
 
 
 build:
