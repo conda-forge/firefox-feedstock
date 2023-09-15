@@ -1,4 +1,4 @@
-{% set version = "115.2.0esr" %}
+{% set version = "115.2.1esr" %}
 
 package:
   name: firefox
