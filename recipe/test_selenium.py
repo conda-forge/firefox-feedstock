@@ -62,7 +62,7 @@ def driver(tmp_path, binary_paths):
     service = Service(
         executable_path=str(geckodriver),
         service_args=["--log", "trace"],
-        log_path=str(log)
+        log_file=str(log)
     )
 
     driver = webdriver.Firefox(options=options, service=service)
