@@ -59,10 +59,13 @@ def driver(tmp_path, binary_paths):
     options.headless = True
     options.binary = FirefoxBinary(str(firefox))
 
+
     service = Service(
         executable_path=str(geckodriver),
         service_args=["--log", "trace"],
-        log_file=str(log)
+        # https://github.com/SeleniumHQ/seleniumhq.github.io/commit/c11605ec062e49b2cbf1a35ddca0bf78224cc75f
+        log_path=str(log),
+        log_output=str(log)
     )
 
     driver = webdriver.Firefox(options=options, service=service)
