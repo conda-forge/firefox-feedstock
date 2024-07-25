@@ -1,3 +1,6 @@
+bot:
+  abi_migration_branches:
+  - '102'
 build_platform:
   osx_arm64: osx_64
 conda_build:
@@ -9,7 +12,3 @@ github:
 provider:
   win: azure
 test: native_and_emulated
-bot:
-  abi_migration_branches:
-    # only the latest LTS
-    - '102'
