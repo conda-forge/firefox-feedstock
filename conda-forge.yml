@@ -12,4 +12,4 @@ test: native_and_emulated
 bot:
   abi_migration_branches:
     # only the latest LTS
-    - '102'
+    - '128esr'
