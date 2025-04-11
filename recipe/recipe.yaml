@@ -48,10 +48,9 @@ tests:
         - selenium >=4
     files:
       recipe:
-        - setup.cfg
         - test_selenium.py
     script:
-      - pytest -vv --tb=long --color=yes
+      - pytest -svvv --tb=long --color=yes
 
 about:
   license: MPL-2.0
