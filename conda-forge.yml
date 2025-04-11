@@ -1,14 +1,16 @@
 bot:
   abi_migration_branches:
-  - '128'
+    # only the latest LTS
+    - '128esr'
 build_platform:
   osx_arm64: osx_64
 conda_build:
   pkg_format: '2'
+conda_build_tool: rattler-build
 conda_forge_output_validation: true
 github:
   branch_name: main
   tooling_branch_name: main
-provider:
-  win: azure
+shellcheck:
+  enabled: true
 test: native_and_emulated
