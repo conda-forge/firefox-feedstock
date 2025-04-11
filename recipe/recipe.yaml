@@ -47,10 +47,9 @@ tests:
         - python
         - selenium >=4
     files:
-      recipe:
-        - test_selenium.py
+      recipe: test_selenium.py
     script:
-      - pytest -svvv --tb=long --color=yes
+      - pytest -svvv --pythonwarnings=error --tb=long --color=yes
 
 about:
   license: MPL-2.0
