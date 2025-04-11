@@ -1,24 +1,27 @@
 #!/usr/bin/env bash
-set -eux
+set -eux -o pipefail
 
-APP_DIR=$PREFIX/bin/FirefoxApp
-LAUNCH_SCRIPT=$PREFIX/bin/firefox
+_UNAME=$(uname)
 
-mkdir -p $APP_DIR
+APP_DIR="${PREFIX}/bin/FirefoxApp"
+LAUNCH_SCRIPT="${PREFIX}/bin/firefox"
 
-if [[ $(uname) == Linux ]]; then
-  mv firefox/* $APP_DIR
-  BIN_LOCATION=$APP_DIR/firefox
-elif [[ $(uname) == Darwin ]]; then
+mkdir -p "${APP_DIR}"
+
+if [[ "${_UNAME}" == "Linux" ]]; then
+  mv firefox/* "${APP_DIR}"
+  BIN_LOCATION="${APP_DIR}/firefox"
+elif [[ "${_UNAME}" == "Darwin" ]]; then
   pkgutil --expand firefox.pkg firefox
   cpio -i -I firefox/*/Payload
-  cp -rf Firefox.app/* $APP_DIR
-  BIN_LOCATION=$APP_DIR/Contents/MacOS/firefox
+  cp -rf Firefox.app/* "${APP_DIR}"
+  BIN_LOCATION="${APP_DIR}/Contents/MacOS/firefox"
 fi
 
 # Write launch script and make executable
-cat <<EOF >$LAUNCH_SCRIPT
+cat <<EOF >"${LAUNCH_SCRIPT}"
 #!/bin/bash
-$BIN_LOCATION "\$@"
+"${BIN_LOCATION}" "\$@"
 EOF
-chmod +x $LAUNCH_SCRIPT
+
+chmod +x "${LAUNCH_SCRIPT}"

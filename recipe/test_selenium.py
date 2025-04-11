@@ -60,7 +60,7 @@ def driver(tmp_path: Path, binary_paths: tuple[Path, Path]) -> webdriver.Firefox
 
     options = Options()
     options.headless = True
-    options.binary = FirefoxBinary(str(firefox))
+    options.binary_location = FirefoxBinary(str(firefox))
 
     service = Service(
         executable_path=str(geckodriver),
