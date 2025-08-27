@@ -8,7 +8,12 @@ conda_build:
   pkg_format: '2'
 conda_build_tool: rattler-build
 conda_forge_output_validation: true
-conda_install_tool: pixi
+# #216: can't install build env
+#
+#   Virtual package '__glibc >=2.28,<3.0.a0' does not match any of the
+#         available virtual packages on your machine: [__unix=0=0, __glibc=2.17=0,
+#        __linux=6.11.0=0, __archspec=1=zen2]
+# conda_install_tool: pixi
 github:
   branch_name: main
   tooling_branch_name: main
