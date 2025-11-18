@@ -44,7 +44,7 @@ tests:
       run:
         - geckodriver
         - pytest
-        - python
+        - python <3.14
         - selenium >=4
     files:
       recipe: test_selenium.py
