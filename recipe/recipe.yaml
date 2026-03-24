@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "148.0.2"
+  version: "149.0"
 
 package:
   name: firefox
@@ -12,17 +12,17 @@ source:
   - if: linux and x86_64
     then:
       url: https://ftp.mozilla.org/pub/firefox/releases/${{ version }}/linux-x86_64/en-US/firefox-${{ version }}.tar.xz
-      sha256: e15afd77dab1ba3c1806b4436cd603b35ea1d4e06a452b5c572ef7bc1663d75a
+      sha256: f29eb4743939897061ea90281933c35da245bca7b0a666be16ba31a583ffeed9
       target_directory: firefox
   - if: osx
     then:
       url: https://ftp.mozilla.org/pub/firefox/releases/${{ version }}/mac/en-US/Firefox%20${{ version }}.pkg
-      sha256: 869ee1754cbf26aa54b6504a4432b6da55e6b5e4d640f9e8bad624923dca2a12
+      sha256: 5e0e51ca776d7b6e896b560c30c009388f8c1c6dacadbd2361607fb2f0b08218
       file_name: firefox.pkg
   - if: win
     then:
       url: https://ftp.mozilla.org/pub/firefox/releases/${{ version }}/win64/en-US/Firefox%20Setup%20${{ version }}.msi
-      sha256: 09f87eb062f1c71d0b72ba3f53c63d71ee6c70a51be4fb805f4d784740465297
+      sha256: 33d8425e45f519f1b30abc070b76aff98ac4c6bc59e7c4567115113c8e1c164d
       file_name: firefox.msi
 
 build:
