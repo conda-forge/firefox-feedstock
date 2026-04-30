@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "150.0"
+  version: "150.0.1"
 
 package:
   name: firefox
