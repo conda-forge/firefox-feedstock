@@ -50,7 +50,10 @@ tests:
       recipe:
         - test_selenium.py
     script:
-      - pytest -svvv --pythonwarnings=error --tb=long --color=yes
+      env:
+        MOZ_HEADLESS: "1"
+      content:
+        - pytest -svvv --pythonwarnings=error --tb=long --color=yes
 
 about:
   license: MPL-2.0
