@@ -12,8 +12,7 @@ if [[ "${_UNAME}" == "Linux" ]]; then
   mv firefox/* "${APP_DIR}"
   BIN_LOCATION="${APP_DIR}/firefox"
 elif [[ "${_UNAME}" == "Darwin" ]]; then
-  pkgutil --expand firefox.pkg firefox
-  sleep 10
+  pkgutil --expand-full firefox.pkg firefox
   find firefox
   cpio -i -I firefox/*/Payload
   cp -rf Firefox.app/* "${APP_DIR}"
