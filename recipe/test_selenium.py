@@ -62,7 +62,11 @@ def driver(tmp_path: Path, binary_paths: tuple[Path, Path]) -> webdriver.Firefox
 
     service = Service(
         executable_path=str(geckodriver),
-        service_args=["--log", "trace"],
+        service_args=[
+            "--log=trace",
+            # https://github.com/mozilla/geckodriver/issues/2250
+            "--allow-system-access",
+        ],
         # https://github.com/SeleniumHQ/seleniumhq.github.io/commit/c11605ec062e49b2cbf1a35ddca0bf78224cc75f
         log_path=str(log),
         log_output=str(log),
