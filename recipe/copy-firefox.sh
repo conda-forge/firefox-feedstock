@@ -12,15 +12,14 @@ if [[ "${_UNAME}" == "Linux" ]]; then
   mv firefox/* "${APP_DIR}"
   BIN_LOCATION="${APP_DIR}/firefox"
 elif [[ "${_UNAME}" == "Darwin" ]]; then
-  pkgutil --expand firefox.pkg firefox
-  cpio -i -I firefox/*/Payload
-  cp -rf Firefox.app/* "${APP_DIR}"
+  pkgutil --expand-full firefox.pkg firefox
+  cp -rf firefox/*/Payload/Firefox.app/* "${APP_DIR}"
   BIN_LOCATION="${APP_DIR}/Contents/MacOS/firefox"
 fi
 
 # Write launch script and make executable
 cat <<EOF >"${LAUNCH_SCRIPT}"
-#!/bin/bash
+#!/usr/bin/env bash
 "${BIN_LOCATION}" "\$@"
 EOF
 

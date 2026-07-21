@@ -2,7 +2,7 @@
 schema_version: 1
 
 context:
-  version: "140.12.0esr"
+  version: "140.13.0esr"
 
 package:
   name: firefox
@@ -12,17 +12,17 @@ source:
   - if: linux and x86_64
     then:
       url: https://ftp.mozilla.org/pub/firefox/releases/${{ version }}/linux-x86_64/en-US/firefox-${{ version }}.tar.xz
-      sha256: 3323ee13ac6fe4877fa2e1f4a3aa6b8009f65a620c7bbca96fe86f1a6f433d92
+      sha256: 866d7e5f94abe93132e02a0db72da32b6e133905fcbea6afa417a96d496021da
       target_directory: firefox
   - if: osx
     then:
       url: https://ftp.mozilla.org/pub/firefox/releases/${{ version }}/mac/en-US/Firefox%20${{ version }}.pkg
-      sha256: 917817cf970229d16b584deb3936e073de7fcbc586bba07aaa3621cb64962a53
+      sha256: 96119013f05170ae79efeafbcee63cddc44e2e16c7eb143cdbbacd6f3a775595
       file_name: firefox.pkg
   - if: win
     then:
       url: https://ftp.mozilla.org/pub/firefox/releases/${{ version }}/win64/en-US/Firefox%20Setup%20${{ version }}.msi
-      sha256: bc0e94ea096e6220c58a7301350f9293a8a45f4024315112ca815f363587927e
+      sha256: 084bada1a8c7bd9680ca40ad7841f30c84a816eb0234926a8d753e4994a1ab59
       file_name: firefox.msi
 
 build:
@@ -50,7 +50,10 @@ tests:
       recipe:
         - test_selenium.py
     script:
-      - pytest -svvv --pythonwarnings=error --tb=long --color=yes
+      env:
+        MOZ_HEADLESS: "1"
+      content:
+        - pytest -svvv --pythonwarnings=error --tb=long --color=yes
 
 about:
   license: MPL-2.0
