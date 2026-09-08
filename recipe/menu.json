@@ -1,0 +1,43 @@
+{
+  "$schema": "https://schemas.conda.org/menuinst-1-1-0.schema.json",
+  "menu_name": "Firefox",
+  "menu_items": [
+    {
+      "name": "Firefox",
+      "description": "Browse the World Wide Web",
+      "icon": "{{ MENU_DIR }}/firefox.{{ ICON_EXT }}",
+      "command": [""],
+      "platforms": {
+        "linux": {
+          "command": ["{{ PREFIX }}/bin/firefox", "%u"],
+          "StartupNotify": true,
+          "Categories": ["GNOME", "GTK", "Network", "WebBrowser"],
+          "GenericName": "Web Browser",
+          "StartupWMClass": "firefox",
+          "MimeType": [
+            "text/html",
+            "text/xml",
+            "application/xhtml+xml",
+            "application/vnd.mozilla.xul+xml",
+            "application/rss+xml",
+            "application/rdf+xml",
+            "image/gif",
+            "image/jpeg",
+            "image/png",
+            "x-scheme-handler/http",
+            "x-scheme-handler/https",
+            "x-scheme-handler/ftp",
+            "x-scheme-handler/chrome",
+            "video/webm",
+            "application/x-xpinstall"
+          ]
+        },
+        "osx": {
+          "command": ["{{ PREFIX }}/bin/firefox", "%u"],
+          "CFBundleIdentifier": "org.mozilla.firefox",
+          "CFBundleVersion": "__PKG_VERSION__"
+        }
+      }
+    }
+  ]
+}
