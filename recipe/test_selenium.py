@@ -39,7 +39,7 @@ def binary_paths() -> tuple[Path, Path]:
         geckodriver = Path(os.environ["SCRIPTS"]) / "geckodriver.exe"
     else:
         geckodriver = Path(sys.prefix) / "bin/geckodriver"
-        app_dir = Path(sys.prefix) / "bin/FirefoxApp"
+        app_dir = Path(sys.prefix) / "bin/Firefox.app"
 
         if "linux" in plat:
             firefox = app_dir / "firefox"
