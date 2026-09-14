@@ -1,7 +1,8 @@
 bot:
   abi_migration_branches:
-    # only the latest LTS
+    # only active ESR branches
     - '140esr'
+    - '153esr'
 conda_build:
   pkg_format: '2'
 conda_build_tool: rattler-build
